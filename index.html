@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue"></script>
+</head>
+<body>
+
+
+    <!-- 
+        v-bind  == :
+        v-on    == @
+     -->
+    <div id="app">
+        <h1>Hello, {{name}}</h1>  
+        <h3>{{userInfo}}</h3>
+        <h3><a :href="url">Link to Homepage</a></h3>  
+        <button @click='changeName' >change to Anna</button>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app' ,
+            data:{
+                name: 'Esquel',
+                age: 27, 
+                url: 'http://google.com'
+            },
+            methods: {
+                changeName: function(){
+                    this.name = 'Anna';
+                }
+            },
+            computed: {
+                userInfo: function(){
+                    return this.name + ' is ' + this.age
+                }
+            }
+        })
+    </script>
+</body>
+</html>
